@@ -334,7 +334,7 @@ th, td {
 }
 
 .nav-link.active {
-    background-color: #FFA626; /* Your desired highlight color */
+    background-color: #FFA626; 
     color: rgb(0, 0, 0);
     border-radius: 0px 10px 10px 0px;
 }
