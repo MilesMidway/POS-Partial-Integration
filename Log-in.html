@@ -48,5 +48,26 @@
         </div>
 
     </div>
+
+    <script>
+        // Fetch JSON data from backend
+        fetch('data.php')
+            .then(response => response.json())
+            .then(data => {
+                // Display products
+                const productList = document.getElementById('product-list');
+                data.products.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.innerHTML = `
+                        <h3>${product.item}</h3>
+                        <p>Price: ${product.price}</p>
+                        <p>Status: ${product.status}</p>
+                        <img src="${product.image}" alt="${product.item}">
+                    `;
+                    productList.appendChild(productItem);
+                });
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
 </body>
 </html>
