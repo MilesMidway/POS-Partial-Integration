@@ -1,0 +1,311 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: "Norwester";
+    src: url(Fonts/norwester.otf);
+}
+
+@font-face {
+    font-family: "Kollektif";
+    src: url(Fonts/Kollektif.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(Fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(12, [cstart] 1fr);
+    grid-template-rows: repeat(4, [rstart] 1fr);
+
+    position: relative;
+    align-items: center;
+}
+
+/* Log-in.html */
+
+.htmllogin {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.containerbgleft {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-column: cstart 1 / 7;
+    grid-row: rstart 1 / -1;
+
+    background-image: url(Images/Burger.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.containerbgright {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-column: cstart 7 / -1;
+    grid-row: rstart 1 / -1;
+    z-index: -1;
+
+    background: rgb(255,139,0);
+    background: linear-gradient(0deg, rgba(255,139,0,1) 0%, rgba(255,198,11,1) 80%, rgba(255,198,11,1) 100%);
+ 
+    
+
+}
+
+.title {
+    grid-column: cstart 7 /  span 11;
+    grid-row: rstart 1 / 1;
+
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1login {
+    grid-column: cstart 8 /  span 11;
+    grid-row: rstart 1 / 1;
+
+    margin-bottom: -6%;
+
+    font-size: 17vw;
+    font-weight: 80;
+    font-family: "Norwester";
+    color: #333333;
+    
+}
+
+.systemname {
+    grid-column: cstart 8 /  span -1;
+    grid-row: rstart 1 / 1;
+
+    font-family: "Kollektif";
+    font-size: 1.5vw;
+    font-weight: 80;
+    letter-spacing: 10px;
+
+}
+
+.devname {
+    grid-column: cstart 8 /  span 11;
+    grid-row: rstart 1 / 1;
+
+
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 1.5vw;
+    letter-spacing: 20px;
+    opacity: 55%;
+
+}
+
+.formcontainer {
+    grid-column: cstart 7 / -1;
+    grid-row: rstart 2 / -1;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
+
+.loginform {
+    width: 60%;
+    height: 85%;
+    margin: auto;
+
+    border-radius: 40px;
+    background-color: #FED85B;
+
+    text-align: center;
+
+    position: relative;
+    
+}
+
+.loginlogo {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.loginformtitle {
+    font-family: "Kollektif";
+    letter-spacing: 5px;
+    font-weight: 80;
+
+    margin-top: 5%;
+    font-size: 1.7vw;
+}
+
+.loginform > label {
+    float: left;
+    margin-left: 15%;
+    font-size: 1.1vw;
+
+    font-family: "Kollektif";
+}
+
+.logintext, .loginpassword{
+    border: none;
+    height: 30px;
+    width: 65%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 2px #888888;
+    opacity: 70%;
+    margin-bottom: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.loginasadmin, .loginasemployee {
+    margin-top: 5%;
+    border: 0px solid #FF8B00;
+    width: 60%;
+    height: 30px;
+    box-shadow: 0px 2px #888888;
+
+    font-family: "Kollektif";
+    font-size: 1.1vw;
+
+    letter-spacing: 2px;
+}
+
+.loginasadmin {
+    background-color: rgba(255,139,0,0.7);
+}
+
+.loginasemployee {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5%;
+}
+
+.contact {
+    font-family: "Kollektif";
+    color: #000000;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1020px){
+    .devname {
+        display: none;
+    }
+
+    .loginform {
+        height: 65%;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+    }
+
+    .formcontainer {
+        display: block;
+        position: relative;
+    }
+
+    .loginform > label {
+        font-size: 1.3vw;
+    }
+
+    .loginlogo {
+        display: block;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        margin-left: -50px;
+
+        width: auto;
+        height: auto;
+        max-width: 100px;
+        max-height: 100px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .loginasadmin, .loginasemployee {
+        font-size: 1.2vw;
+    }
+
+    .contact {
+        font-size: 1.2vw;
+    }
+}
+
+@media screen and (max-width:800px){
+    .systemname {
+        display: none;
+    }
+
+    .loginform {
+        height: 60%;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        
+    }
+
+    .formcontainer {
+        display: block;
+        position: relative;
+    }
+
+    .loginform > label {
+        font-size: 1.6vw;
+    }
+
+    .loginlogo {
+        display: block;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        margin-left: -60px;
+
+        width: auto;
+        height: auto;
+        max-width: 120px;
+        max-height: 120px;
+        min-width: 50px;
+        min-height: 50px;
+
+    }
+
+    .loginasadmin, .loginasemployee {
+        font-size: 1.3vw;
+    }
+
+    .contact {
+        font-size: 1.3vw;
+    }
+
+}
+
+@media screen and (max-height: 600px){
+    .loginlogo {
+        display: none;
+    }
+
+    .loginform {
+        height: 80%;
+    }
+}

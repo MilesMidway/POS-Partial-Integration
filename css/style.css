@@ -1,0 +1,933 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: "Norwester";
+    src: url(Fonts/norwester.otf);
+}
+
+@font-face {
+    font-family: "Kollektif";
+    src: url(Fonts/Kollektif.ttf);
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(Fonts/Montserrat-VariableFont_wght.ttf);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: repeat(12, [cstart] 1fr);
+    grid-template-rows: repeat(4, [rstart] 1fr);
+
+    position: relative;
+    align-items: center;
+}
+
+/* Log-in.html */
+
+html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.containerbgleft {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-column: cstart 1 / 7;
+    grid-row: rstart 1 / -1;
+
+    background-image: url(Images/Burger.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.containerbgright {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    grid-column: cstart 7 / -1;
+    grid-row: rstart 1 / -1;
+    z-index: -1;
+
+    background: rgb(255,139,0);
+    background: linear-gradient(0deg, rgba(255,139,0,1) 0%, rgba(255,198,11,1) 80%, rgba(255,198,11,1) 100%);
+ 
+    
+
+}
+
+.title {
+    grid-column: cstart 7 /  span 11;
+    grid-row: rstart 1 / 1;
+
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1login {
+    grid-column: cstart 8 /  span 11;
+    grid-row: rstart 1 / 1;
+
+    margin-bottom: -6%;
+
+    font-size: 17vw;
+    font-weight: 80;
+    font-family: "Norwester";
+    color: #333333;
+    
+}
+
+.systemname {
+    grid-column: cstart 8 /  span -1;
+    grid-row: rstart 1 / 1;
+
+    font-family: "Kollektif";
+    font-size: 1.5vw;
+    font-weight: 80;
+    letter-spacing: 10px;
+
+}
+
+.devname {
+    grid-column: cstart 8 /  span 11;
+    grid-row: rstart 1 / 1;
+
+
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: 1.5vw;
+    letter-spacing: 20px;
+    opacity: 55%;
+
+}
+
+.formcontainer {
+    grid-column: cstart 7 / -1;
+    grid-row: rstart 2 / -1;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+}
+
+.loginform {
+    width: 60%;
+    height: 85%;
+    margin: auto;
+
+    border-radius: 40px;
+    background-color: #FED85B;
+
+    text-align: center;
+
+    position: relative;
+    
+}
+
+.loginlogo {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+
+    max-width: 120px;
+    max-height: 120px;
+}
+
+.loginformtitle {
+    font-family: "Kollektif";
+    letter-spacing: 5px;
+    font-weight: 80;
+
+    margin-top: 5%;
+    font-size: 1.7vw;
+}
+
+.loginform > label {
+    float: left;
+    margin-left: 15%;
+    font-size: 1.1vw;
+
+    font-family: "Kollektif";
+}
+
+.logintext, .loginpassword{
+    border: none;
+    height: 30px;
+    width: 65%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 2px #888888;
+    opacity: 70%;
+    margin-bottom: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.loginasadmin, .loginasemployee {
+    margin-top: 5%;
+    border: 0px solid #FF8B00;
+    width: 60%;
+    height: 30px;
+    box-shadow: 0px 2px #888888;
+
+    font-family: "Kollektif";
+    font-size: 1.1vw;
+
+    letter-spacing: 2px;
+}
+
+.loginasadmin {
+    background-color: rgba(255,139,0,0.7);
+}
+
+.loginasemployee {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5%;
+}
+
+.contact {
+    font-family: "Kollektif";
+    color: #000000;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1020px){
+    .devname {
+        display: none;
+    }
+
+    .loginform {
+        height: 65%;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+    }
+
+    .formcontainer {
+        display: block;
+        position: relative;
+    }
+
+    .loginform > label {
+        font-size: 1.3vw;
+    }
+
+    .loginlogo {
+        display: block;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        margin-left: -50px;
+
+        width: auto;
+        height: auto;
+        max-width: 100px;
+        max-height: 100px;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    .loginasadmin, .loginasemployee {
+        font-size: 1.2vw;
+    }
+
+    .contact {
+        font-size: 1.2vw;
+    }
+}
+
+@media screen and (max-width:800px){
+    .systemname {
+        display: none;
+    }
+
+    .loginform {
+        height: 60%;
+        position: absolute;
+        top: 10%;
+        left: 20%;
+        
+    }
+
+    .formcontainer {
+        display: block;
+        position: relative;
+    }
+
+    .loginform > label {
+        font-size: 1.6vw;
+    }
+
+    .loginlogo {
+        display: block;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        margin-left: -60px;
+
+        width: auto;
+        height: auto;
+        max-width: 120px;
+        max-height: 120px;
+        min-width: 50px;
+        min-height: 50px;
+
+    }
+
+    .loginasadmin, .loginasemployee {
+        font-size: 1.3vw;
+    }
+
+    .contact {
+        font-size: 1.3vw;
+    }
+
+}
+
+@media screen and (max-height: 600px){
+    .loginlogo {
+        display: none;
+    }
+
+    .loginform {
+        height: 80%;
+    }
+}
+
+/* Admin.html */
+
+.navigation {
+    width: 100%;
+    height: 100%;
+    grid-column: cstart 1 / 3;
+    grid-row: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+}
+
+.navlogo {
+    width: 160px;
+    height: 160px;
+    margin-top: 3em;
+    background-color: #FFFFFF;
+    border-radius: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 6px #33333377;
+}
+
+.navlogo > img {
+    width: 90%;
+    height: 90%;
+}
+
+.logotitle {
+    position: absolute;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: "Montserrat";
+    color: #444444;
+    letter-spacing: 3px;
+
+    top: 31%;
+}
+
+.logotitle2 {
+    position: absolute;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: "Montserrat";
+    color: #444444;
+    letter-spacing: 3px;
+
+    top: 33.3%;
+}
+
+.navanchor {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 40px;
+
+    color: #444444;
+}
+
+.nav1, .nav2, .nav3 {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 0.9rem;
+    font-weight: 450;
+    font-family: "Montserrat";
+
+    border-radius: 15px;
+
+    background: linear-gradient(to left, rgba(250, 128, 114, 0) 50%, #FF8B0099 50%) right;
+    background-size: 200%;
+    transition: .5s ease-out;
+}
+
+.nav1 {
+    top: 45%;
+    width: 60%;
+    height: 40px;
+}
+
+.nav2 {
+    top: 55%;
+    width: 60%;
+    height: 40px;
+}
+
+.nav3 {
+    top: 65%;
+    width: 60%;
+    height: 40px;
+}
+
+.navimgholder {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    min-width: 40px;
+
+    background-color: #FF8B00;
+}
+
+.navimgholder > img {
+    width: 60%;
+}
+
+.navtext {
+    float: left;
+    margin-left: 5%;
+}
+
+.nav1:hover, .nav2:hover, .nav3:hover {
+    background-position: left;
+}
+
+
+.logout {
+    position: absolute;
+
+    bottom: 3%;
+
+    width: 60%;
+    height: 40px;
+
+    font-weight: 500;
+    font-family: "Montserrat";
+
+    border: none;
+
+    color: #000000;
+    background-color: #FF8B00;
+}
+
+.bodyadmin {
+    background: rgb(255,198,11);
+    background: linear-gradient(180deg, rgba(255,198,11,0.9136904761904762) 0%, rgba(254,254,214,1) 90%, rgba(254,254,214,1) 100%);
+
+    
+}
+
+.infocontainer {
+    grid-column: cstart 3 / -1;
+    grid-row: rstart 1 / -1;
+
+    background-color: #FEFFDB;
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    width: 98%;
+    height: 94%;
+
+    display: flex;
+
+    box-shadow: 0px 2px 2px #BBBBBB;
+    border-radius: 25px ;
+
+    
+}
+
+.infocontainer > table {
+    font-family: "Montserrat";
+    color: #444444;
+
+    height: 97%;
+    width: 100%;
+    
+    margin: 30px;
+    margin-top: 5px;
+
+    letter-spacing: 2px;
+}
+
+.homeheader {
+    height: 10%;
+    border-bottom: 1px solid;
+}
+
+.reports {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid;
+}
+
+.reports > h3 {
+    margin-top: 10px;
+    font-size: 1.4em;
+}
+
+.reportsfilter, .div1, .timefilters {
+    margin-top: -10px; 
+    padding: 5px;
+    width: 190px;
+    text-align: center;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.reportsfilter > div {
+    height: 100%;
+    width: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #000000;
+    
+}
+
+.reportsfilter > .div1 {
+    margin-top: -5px;
+    background-color: #FFC60B;
+    font-weight: 100;
+    width: 95px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timefilters > select {
+    height: 30px;
+    border: none;
+    background-color: #FF8B0099;
+    font-weight: 500;
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bestprodinfo {
+    width: 100%;
+    height: 100%;
+
+    margin-top: -20px;
+}
+
+.bpimg {
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    background-color: #FF8B0099;
+
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+
+}
+
+.bpdtitle {
+    font-size: 1rem;
+    font-weight: 550;
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    color: #000000;
+
+    font-family: "Montserrat";
+}
+
+.bpimg > img {
+    margin-top: -20px;
+
+    height: 150px;
+    width: 150px;
+}
+
+.bpdname {
+    position: absolute;
+
+    bottom: 15%;
+    left: 5%;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.bpdprice {
+    position: absolute;
+
+    bottom: 8%;
+    left: 5%;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.bptxts {
+    width: 95%;
+    height: 85%;
+    margin: auto;
+    background-color: #FF8B0099;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 15px;
+}
+
+.bptxtstitle {
+    font-size: 1rem;
+    font-weight: 550;
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    color: #000000;
+
+    font-family: "Montserrat";
+}
+
+.popitem1 {
+
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #000000;
+    margin-top: 17%;
+    margin-left: 5%;
+}
+
+.popitem {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #000000;
+    margin-top: 4px;
+    margin-left: 5%;
+}
+
+.bprev {
+    width: 95%;
+    height: 85%;
+    margin: auto;
+    background-color: #FF8B0099;
+
+    position: relative;
+
+    border-radius: 15px;
+    margin-top: -20px;
+}
+
+.bprevtitle {
+    font-size: 1rem;
+    font-weight: 550;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    color: #000000;
+    
+    font-family: "Montserrat";
+}
+
+.bprevenue {
+    position: absolute;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #000000;
+
+    bottom: 30%;
+    left: 5%;
+}
+
+.splitting1 {
+    width: 50%;
+
+
+}
+
+.split1 {
+    height: 100%;
+    width: 100%;
+}
+
+.time {
+    position: relative;
+
+    border-bottom: 1px solid;
+}
+
+.toplefttitle {
+    position: absolute;
+
+    top: 10%;
+    left: 2%;
+
+    font-size: 1.4em;
+}
+
+.hrformat12 {
+    position: absolute;
+    bottom: 22.5%;
+    left: 5%;
+}
+
+.hrformat24 {
+    position: absolute;
+    bottom: 22.5%;
+    right: 5%;
+}
+
+.hrformat12, .hrformat24 {
+    width: 40%;
+    height: 45px;
+
+    background-color: #FF8B0099;
+
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Montserrat";
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #000000;
+}
+
+.calen {
+    position: relative;
+}
+
+.calentitle {
+    position: absolute;
+
+    top: 5%;
+    left: 2%;
+
+    font-size: 1.4em;
+}
+
+.calendarholder {
+    position: absolute;
+    top: 17.5%;
+    left: 12.5%;
+
+    width: 60%;
+    height: 75%;
+
+    border-radius: 15px;
+}
+
+.calendar {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 15px;
+
+    box-shadow: 2px 2px 5px #FF8B0099;
+}
+
+.split2 {
+    width: 100%;
+    height: 100%;
+}
+
+.splitting2 {
+    height: 25%;
+
+    border-top: 1px solid;
+}
+
+.scheduling {
+    position: relative;
+    width: 25%;
+
+
+    border-right: 1px solid;
+}
+
+.containerck0 {
+    margin-top: 70px;
+  }
+
+.containerck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.containerck > input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #FFC60B;
+    border-radius: 20px;
+
+    box-shadow: 1px 1px 4px #555555;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+.containerck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid #444444;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.links {
+    position: relative;
+    width: 25%;
+
+    border-right: 1px solid;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.outlinks0 {
+    position: absolute;
+    top: 35%;
+    left: 2%;
+
+    text-decoration: none;
+    color: #444444;
+}
+
+.outlinks01 {
+    position: absolute;
+    top: 47%;
+    left: 2%;
+
+    text-decoration: none;
+    color: #444444;
+}
+
+.outlinks1 {
+    position: absolute;
+    top: 65%;
+    left: 2%;
+
+    text-decoration: none;
+    color: #444444;
+}
+
+.outlinks11 {
+    position: absolute;
+    top: 77%;
+    left: 2%;
+
+    text-decoration: none;
+    color: #444444;
+}
+
+.outlinks12 {
+    position: absolute;
+    top: 89%;
+    left: 2%;
+
+    text-decoration: none;
+    color: #444444;
+}
+
+.about {
+    position: relative;
+    width: 50%;
+}
+
+.abttext {
+    position: absolute;
+    top: 30%;
+    left: 2%;
+}
+
+@media screen and (max-width: 1020px) {
+    
+}
+
+
+
+
