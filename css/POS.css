@@ -44,7 +44,7 @@
     grid-column: cstart 1 / 7;
     grid-row: rstart 1 / -1;
 
-    background-image: url(Images/Burger.png);
+    background-image: url(../Images/Burger.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
