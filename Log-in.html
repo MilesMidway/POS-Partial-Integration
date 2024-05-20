@@ -9,44 +9,25 @@
 <body class="bodylogin">
     <div class="container">
         <div class="containerbgleft"></div>
-
         <div class="containerbgright"></div>
-
         <div class="title">
-
-        <h1 class="h1login">JULS</h1>
-        
-        <h4 class="systemname">POINT-OF-SALE SYSTEM</h4>
-
-        <h4 class="devname">by MANICC WARP</h4>
-
+            <h1 class="h1login">JULS</h1>
+            <h4 class="systemname">POINT-OF-SALE SYSTEM</h4>
+            <h4 class="devname">by MANICC WARP</h4>
         </div>
-
         <div class="formcontainer">
-
-        <form class="loginform" action="login.php">
-
-            <h2 class="loginformtitle">LOG-IN</h2><br>
-
-            <label for="username">Username:</label><br>
-            <input class="logintext" type="text" id="username" name="username"><br>
-
-            <label for="password">Password:</label><br>
-            <input class="loginpassword" type="password" id="password" name="password"><br>
-
-            <input class="loginasadmin" type="submit" value="Log-in as Admin"><br>
-            <input class="loginasemployee" type="submit" value="Log-in as Employee"><br>
-
-            <a class="contact" href="">Contact Developers</a>
-
-        </form>
-
-        <img class="loginlogo" src="Images/Juls Logo.png">
-
-
-
+            <form class="loginform" action="#" method="POST">
+                <h2 class="loginformtitle">LOG-IN</h2><br>
+                <label for="username">Username:</label><br>
+                <input class="logintext" type="text" id="username" name="username"><br>
+                <label for="password">Password:</label><br>
+                <input class="loginpassword" type="password" id="password" name="password"><br>
+                <input class="loginasadmin" type="button" onclick="window.location.href='Admin.html'" value="Log-in as Admin"><br>
+                <input class="loginasemployee" type="button" onclick="window.location.href='index.html'" value="Log-in as Employee"><br>
+                <a class="contact" href="">Contact Developers</a>
+            </form>
+            <img class="loginlogo" src="Images/Juls Logo.png">
         </div>
-
     </div>
 </body>
 </html>
