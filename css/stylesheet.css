@@ -121,7 +121,7 @@ body {
     margin-top: 4px;
     margin-left: 14px;
     box-shadow: 0px 10px 100px rgba(0, 0, 0, 0); 
-    background-image: url("assets/pos assets/Search.png");
+    background-image: url("file:///assets/pos assets/Search.png");
     background-repeat: no-repeat;
     background-size: 14px;
     background-position: 420px center;

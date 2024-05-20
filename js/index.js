@@ -16,6 +16,7 @@ fetch("http://localhost:3000/employees")
 const categoryContainer = document.getElementById('categoryContainer');
 let productsData = []; // Store products data globally
 
+
 async function fetchData(url) {
   try {
     const response = await fetch(url);
@@ -60,49 +61,24 @@ async function generateCategoryButtons(data) {
   });
 }
 
-async function renderProducts(products) {
-  let out = "";
-  for (let product of products) {
-    out += `
-<div class="product">
-<img src="${product.image}" alt="${product.item}">
-<p><b>${product.item}</b></p>
-<p>₱${product.price}</p>
-</div>
-`;
-  }
-  const placeholder = document.querySelector('.products');
-  placeholder.innerHTML = out;
-}
-
-fetchData('http://localhost:3000/products')
-  .then(data => {
-    productsData = data;
-    generateCategoryButtons(data);
-    renderProducts(data);
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
-
-categoryContainer.addEventListener('click', function (event) {
-  const categoryDiv = event.target.closest('.category');
-  if (categoryDiv) {
-    const isSelected = categoryDiv.classList.contains('selected');
-
-    const categoryButtons = categoryContainer.querySelectorAll('.category');
-    categoryButtons.forEach(button => button.classList.remove('selected'));
-
-    if (!isSelected) {
-      const categoryName = categoryDiv.querySelector('.category-name').textContent.trim(); 
-      const filteredProducts = productsData.filter(product => product.category === categoryName);
-      renderProducts(filteredProducts);
-      categoryDiv.classList.add('selected');
-    } else {
-      renderProducts(productsData);
+async function renderProducts(products, filtered = false) {
+    let out = "";
+    for (let product of products) {
+        out += `
+    <div class="product">
+    <img src="${product.image}" alt="${product.item}">
+    <p><b>${product.item}</b></p>
+    <p>₱${product.price}</p>
+    </div>
+    `;
     }
-  }
-});
+    const placeholder = document.querySelector('.products');
+    if (filtered) {
+        placeholder.innerHTML = out ? out : '<p>No matching products found.</p>';
+    } else {
+        placeholder.innerHTML = out;
+    }
+}
 
 const currentTime = new Date();
 
@@ -128,7 +104,7 @@ updateTime();
 
 setInterval(updateTime, 1000);
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
   const productContain = document.querySelector('.products');
   const ordersContainer = document.querySelector('.orders');
   const totalAmountElement = document.querySelector('.total-amount');
@@ -141,6 +117,24 @@ document.addEventListener('DOMContentLoaded', function () {
   let clickedItems = {};
 
   let deletedOrders = {};
+
+  try {
+    productsData = await fetchData('http://localhost:3000/products');
+
+    document.getElementById('searchInput').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            const searchTerm = this.value.trim().toLowerCase();
+            const filteredProducts = productsData.filter(product => {
+                // Filter products based on the search term (product item)
+                return product.item.toLowerCase().includes(searchTerm);
+            });
+            renderProducts(filteredProducts, true); // Render filtered products
+        }
+    });
+
+} catch (error) {
+    console.error('Error initializing page:', error);
+}
 
   productContain.addEventListener('click', function (event) {
       const productDiv = event.target.closest('.product'); 
@@ -157,6 +151,14 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       }
   });
+
+    function initializeOrderNumber() {
+        if (localStorage.getItem('orderNumber') === null) {
+            localStorage.setItem('orderNumber', '1');
+        }
+    }
+
+    initializeOrderNumber();
 
   function showOptions(productData) {
       const sizes = Object.keys(productData.sizes);
@@ -217,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const orderNumber = localStorage.getItem('orderNumber');
       const productInfo = `${orderNumber ? `Order ${orderNumber} - ` : ''}${productName}`;
+      orderNumberElement.textContent = `Order ${orderNumber}`;
 
       console.log(productInfo);
   }
@@ -386,8 +389,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentMinute = currentDate.getMinutes();
 
       if (currentHour === 0 && currentMinute === 0) {
-          localStorage.setItem('orderNumber', '1');
-          orderNumberElement.textContent = 'Order 1';
+          localStorage.setItem('orderNumber', '0');
+          orderNumberElement.textContent = `Order ${orderNumber}`;
       }
   }
 
